@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Men's Fashion – StyleHub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html"><div class="logo">Style<span>Hub</span></div></a>
+  <div class="search-box">
+    <input type="text" placeholder="Search men's fashion...">
+    <button><i class="fas fa-search"></i> Search</button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span>Cart</span> <span class="cart-count">0</span></a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+  </ul>
+</nav>
+
+<div class="category-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="women.html">👗 Women</a>
+  <a href="men.html" class="active">👔 Men</a>
+  <a href="shoes.html">👟 Shoes</a>
+  <a href="beauty.html">💄 Beauty</a>
+  <a href="accessories.html">💍 Accessories</a>
+</div>
+
+<button class="filters-toggle" onclick="toggleMobileFilters()">
+  <i class="fas fa-sliders-h"></i> Filter & Sort
+</button>
+<div class="filter-overlay" onclick="toggleMobileFilters()"></div>
+
+<section class="shop-layout">
+  <div class="filters">
+    <h2>👔 Men's Fashion</h2>
+
+    <div class="filter-group">
+      <h4>Category</h4>
+      <label><input type="checkbox" class="filter-sub" value="shirt"> Shirts</label>
+      <label><input type="checkbox" class="filter-sub" value="tshirt"> T-Shirts</label>
+      <label><input type="checkbox" class="filter-sub" value="jeans"> Jeans</label>
+      <label><input type="checkbox" class="filter-sub" value="hoodie"> Hoodies</label>
+      <label><input type="checkbox" class="filter-sub" value="jacket"> Jackets</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Size</h4>
+      <label><input type="checkbox" class="filter-size" value="S"> S</label>
+      <label><input type="checkbox" class="filter-size" value="M"> M</label>
+      <label><input type="checkbox" class="filter-size" value="L"> L</label>
+      <label><input type="checkbox" class="filter-size" value="XL"> XL</label>
+      <label><input type="checkbox" class="filter-size" value="XXL"> XXL</label>
+      <label><input type="checkbox" class="filter-size" value="28"> Waist 28</label>
+      <label><input type="checkbox" class="filter-size" value="30"> Waist 30</label>
+      <label><input type="checkbox" class="filter-size" value="32"> Waist 32</label>
+      <label><input type="checkbox" class="filter-size" value="34"> Waist 34</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Brand</h4>
+      <label><input type="checkbox"> Levi's</label>
+      <label><input type="checkbox"> Allen Solly</label>
+      <label><input type="checkbox"> Peter England</label>
+      <label><input type="checkbox"> H&M</label>
+      <label><input type="checkbox"> Pepe Jeans</label>
+      <label><input type="checkbox"> U.S. Polo</label>
+      <label><input type="checkbox"> HRX</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Price Range</h4>
+      <div class="price-inputs">
+        <input type="number" placeholder="Min ₹">
+        <span>–</span>
+        <input type="number" placeholder="Max ₹">
+      </div>
+    </div>
+  </div>
+
+  <div class="products-section">
+    <div class="sort-bar">
+      <span>Sort by:</span>
+      <select id="sort-select">
+        <option value="popular">Most Popular</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+      </select>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="product-grid" id="products"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Style<span style="color:var(--accent)">Hub</span></div>
+      <p>Fashion for every man – curated with style.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Men's</h4>
+      <a href="#">Shirts</a><a href="#">T-Shirts</a><a href="#">Jeans</a>
+      <a href="#">Jackets</a><a href="#">Hoodies</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Size Guide</a><a href="#">Returns</a><a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 StyleHub</span></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  displayProducts("men");
+  setupFilters("men");
+</script>
+</body>
+</html>

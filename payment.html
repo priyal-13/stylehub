@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment – StyleHub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body style="background:var(--light-bg);">
+
+<nav class="navbar">
+  <a href="index.html"><div class="logo">Style<span>Hub</span></div></a>
+  <ul class="nav-links" style="margin-left:auto;">
+    <li><a href="cart.html"><i class="fas fa-arrow-left"></i> Back to Cart</a></li>
+  </ul>
+</nav>
+
+<div class="payment-page">
+  <div class="payment-box">
+    <h1><i class="fas fa-credit-card" style="color:var(--primary);"></i> Payment</h1>
+    <p class="subtitle">Complete your order securely</p>
+
+    <!-- Payment Method Tabs -->
+    <div class="payment-tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'card')">💳 Card</button>
+      <button class="tab-btn" onclick="switchTab(this,'upi')">📱 UPI</button>
+      <button class="tab-btn" onclick="switchTab(this,'cod')">💵 Cash on Delivery</button>
+    </div>
+
+    <!-- CARD PAYMENT -->
+    <div id="tab-card">
+      <!-- Delivery Address -->
+      <p style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-medium);margin-bottom:14px;">Delivery Address</p>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Priya Sharma" id="name">
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="+91 98765 43210" id="mobile">
+      </div>
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <input type="text" placeholder="Flat No., Street, Area" id="address">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" placeholder="Mumbai">
+        </div>
+        <div class="form-group">
+          <label>PIN Code</label>
+          <input type="text" placeholder="400001">
+        </div>
+      </div>
+
+      <!-- Card Details -->
+      <p style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-medium);margin:18px 0 14px;">Card Details</p>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="4242 4242 4242 4242" id="card-num" maxlength="19" oninput="formatCard(this)">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiry Date</label>
+          <input type="text" placeholder="MM/YY" maxlength="5">
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="password" placeholder="•••" maxlength="3">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Name on Card</label>
+        <input type="text" placeholder="Priya Sharma">
+      </div>
+    </div>
+
+    <!-- UPI PAYMENT -->
+    <div id="tab-upi" style="display:none;">
+      <div class="form-group">
+        <label>UPI ID</label>
+        <input type="text" placeholder="yourname@upi">
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-light);text-align:center;margin:16px 0;">
+        Supports GooglePay, PhonePe, Paytm, BHIM UPI
+      </p>
+      <div style="display:flex;justify-content:center;gap:16px;font-size:2rem;margin:16px 0;">
+        <span title="Google Pay">🟢</span>
+        <span title="PhonePe">🟣</span>
+        <span title="Paytm">🔵</span>
+        <span title="BHIM">🟠</span>
+      </div>
+    </div>
+
+    <!-- COD -->
+    <div id="tab-cod" style="display:none;text-align:center;padding:20px 0;">
+      <div style="font-size:3rem;margin-bottom:12px;">💵</div>
+      <p style="color:var(--text-medium);font-size:0.92rem;">Pay with cash when your order arrives at your doorstep.</p>
+      <p style="color:var(--text-light);font-size:0.82rem;margin-top:8px;">Available for orders up to ₹5,000</p>
+      <div class="form-group" style="margin-top:20px;">
+        <label>Full Name</label>
+        <input type="text" placeholder="Priya Sharma">
+      </div>
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <input type="text" placeholder="Your complete address">
+      </div>
+    </div>
+
+    <!-- Amount to Pay -->
+    <div class="payment-amount">
+      <span class="amount-label"><i class="fas fa-receipt"></i> Total Amount</span>
+      <span class="amount-value" id="pay-amount">₹0</span>
+    </div>
+
+    <button class="pay-btn" onclick="handlePayment()">
+      <i class="fas fa-lock"></i> Pay Now Securely
+    </button>
+
+    <p style="text-align:center;font-size:0.78rem;color:var(--text-light);margin-top:12px;">
+      <i class="fas fa-shield-alt"></i> 256-bit SSL Encrypted · 100% Secure
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Show saved total
+  document.addEventListener('DOMContentLoaded', () => {
+    const total = localStorage.getItem('stylehub_total') || 0;
+    const amountEl = document.getElementById('pay-amount');
+    if (amountEl) amountEl.textContent = `₹${Number(total).toLocaleString()}`;
+  });
+
+  function formatCard(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 16);
+    input.value = v.replace(/(.{4})/g, '$1 ').trim();
+  }
+
+  function switchTab(btn, tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    ['card','upi','cod'].forEach(t => {
+      const el = document.getElementById('tab-' + t);
+      if (el) el.style.display = t === tab ? 'block' : 'none';
+    });
+  }
+
+  function handlePayment() {
+    const name = document.getElementById('name') || document.querySelector('input[placeholder="Priya Sharma"]');
+    if (name && !name.value.trim()) {
+      showToast('Please fill in your details', 'error');
+      name.focus();
+      return;
+    }
+    paymentSuccess();
+  }
+</script>
+</body>
+</html>

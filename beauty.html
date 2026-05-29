@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty – StyleHub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html"><div class="logo">Style<span>Hub</span></div></a>
+  <div class="search-box">
+    <input type="text" placeholder="Search skincare, makeup, haircare...">
+    <button><i class="fas fa-search"></i> Search</button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span>Cart</span> <span class="cart-count">0</span></a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+  </ul>
+</nav>
+
+<div class="category-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="women.html">👗 Women</a>
+  <a href="men.html">👔 Men</a>
+  <a href="shoes.html">👟 Shoes</a>
+  <a href="beauty.html" class="active">💄 Beauty</a>
+  <a href="accessories.html">💍 Accessories</a>
+</div>
+
+<button class="filters-toggle" onclick="toggleMobileFilters()">
+  <i class="fas fa-sliders-h"></i> Filter & Sort
+</button>
+<div class="filter-overlay" onclick="toggleMobileFilters()"></div>
+
+<section class="shop-layout">
+  <div class="filters">
+    <h2>💄 Beauty</h2>
+
+    <!-- SKINCARE -->
+    <div class="filter-group">
+      <h4>🌿 Skincare</h4>
+      <label><input type="checkbox" class="filter-sub" value="cleanser"> Cleansers</label>
+      <label><input type="checkbox" class="filter-sub" value="moisturizer"> Moisturizers</label>
+      <label><input type="checkbox" class="filter-sub" value="serum"> Serums</label>
+    </div>
+
+    <!-- MAKEUP -->
+    <div class="filter-group">
+      <h4>💋 Makeup</h4>
+      <label><input type="checkbox" class="filter-sub" value="foundation"> Foundation</label>
+      <label><input type="checkbox" class="filter-sub" value="lipstick"> Lipsticks</label>
+      <label><input type="checkbox" class="filter-sub" value="eyepalette"> Eye Palettes</label>
+    </div>
+
+    <!-- HAIRCARE -->
+    <div class="filter-group">
+      <h4>💇 Haircare</h4>
+      <label><input type="checkbox" class="filter-sub" value="haircare"> All Haircare</label>
+    </div>
+
+    <!-- BRANDS -->
+    <div class="filter-group">
+      <h4>Brand</h4>
+      <label><input type="checkbox"> Nykaa</label>
+      <label><input type="checkbox"> Lakme</label>
+      <label><input type="checkbox"> Maybelline NY</label>
+      <label><input type="checkbox"> SUGAR Cosmetics</label>
+      <label><input type="checkbox"> The Ordinary</label>
+      <label><input type="checkbox"> Minimalist</label>
+      <label><input type="checkbox"> CeraVe</label>
+      <label><input type="checkbox"> Neutrogena</label>
+      <label><input type="checkbox"> Garnier</label>
+      <label><input type="checkbox"> L'Oreal</label>
+      <label><input type="checkbox"> Mamaearth</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Price Range</h4>
+      <div class="price-inputs">
+        <input type="number" placeholder="Min ₹">
+        <span>–</span>
+        <input type="number" placeholder="Max ₹">
+      </div>
+    </div>
+  </div>
+
+  <div class="products-section">
+    <div class="sort-bar">
+      <span>Sort by:</span>
+      <select id="sort-select">
+        <option value="popular">Most Popular</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+      </select>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="product-grid" id="products"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Style<span style="color:var(--accent)">Hub</span></div>
+      <p>Glow up with our curated beauty collection.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Beauty</h4>
+      <a href="#">Cleansers</a><a href="#">Serums</a><a href="#">Foundation</a>
+      <a href="#">Lipsticks</a><a href="#">Haircare</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Returns</a><a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 StyleHub</span></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  displayProducts("beauty");
+  setupFilters("beauty");
+</script>
+</body>
+</html>

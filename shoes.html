@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoes – StyleHub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html"><div class="logo">Style<span>Hub</span></div></a>
+  <div class="search-box">
+    <input type="text" placeholder="Search shoes, sneakers, boots...">
+    <button><i class="fas fa-search"></i> Search</button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span>Cart</span> <span class="cart-count">0</span></a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+  </ul>
+</nav>
+
+<div class="category-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="women.html">👗 Women</a>
+  <a href="men.html">👔 Men</a>
+  <a href="shoes.html" class="active">👟 Shoes</a>
+  <a href="beauty.html">💄 Beauty</a>
+  <a href="accessories.html">💍 Accessories</a>
+</div>
+
+<button class="filters-toggle" onclick="toggleMobileFilters()">
+  <i class="fas fa-sliders-h"></i> Filter & Sort
+</button>
+<div class="filter-overlay" onclick="toggleMobileFilters()"></div>
+
+<section class="shop-layout">
+  <div class="filters">
+    <h2>👟 Shoes</h2>
+
+    <div class="filter-group">
+      <h4>Type</h4>
+      <label><input type="checkbox" class="filter-sub" value="sneakers"> 👟 Sneakers</label>
+      <label><input type="checkbox" class="filter-sub" value="heels"> 👠 Heels & Pumps</label>
+      <label><input type="checkbox" class="filter-sub" value="boots"> 🥾 Ankle Boots</label>
+      <label><input type="checkbox" class="filter-sub" value="sandals"> 🩴 Sandals</label>
+      <label><input type="checkbox" class="filter-sub" value="crocs"> 🐊 Crocs</label>
+      <label><input type="checkbox" class="filter-sub" value="cleats"> ⚽ Cleats</label>
+      <label><input type="checkbox" class="filter-sub" value="saddle"> 👞 Saddle Shoes</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Brand</h4>
+      <label><input type="checkbox"> Nike</label>
+      <label><input type="checkbox"> Adidas</label>
+      <label><input type="checkbox"> Reebok</label>
+      <label><input type="checkbox"> Asics</label>
+      <label><input type="checkbox"> Converse</label>
+      <label><input type="checkbox"> Vans</label>
+      <label><input type="checkbox"> Crocs</label>
+      <label><input type="checkbox"> Dr. Martens</label>
+      <label><input type="checkbox"> Clarks</label>
+      <label><input type="checkbox"> Steve Madden</label>
+      <label><input type="checkbox"> Birkenstock</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>UK Size</h4>
+      <label><input type="checkbox" class="filter-size" value="4"> UK 4</label>
+      <label><input type="checkbox" class="filter-size" value="5"> UK 5</label>
+      <label><input type="checkbox" class="filter-size" value="6"> UK 6</label>
+      <label><input type="checkbox" class="filter-size" value="7"> UK 7</label>
+      <label><input type="checkbox" class="filter-size" value="8"> UK 8</label>
+      <label><input type="checkbox" class="filter-size" value="9"> UK 9</label>
+      <label><input type="checkbox" class="filter-size" value="10"> UK 10</label>
+      <label><input type="checkbox" class="filter-size" value="11"> UK 11</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Price Range</h4>
+      <div class="price-inputs">
+        <input type="number" placeholder="Min ₹">
+        <span>–</span>
+        <input type="number" placeholder="Max ₹">
+      </div>
+    </div>
+  </div>
+
+  <div class="products-section">
+    <div class="sort-bar">
+      <span>Sort by:</span>
+      <select id="sort-select">
+        <option value="popular">Most Popular</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+      </select>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="product-grid" id="products"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Style<span style="color:var(--accent)">Hub</span></div>
+      <p>Step into style with our curated shoe collection.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shoes</h4>
+      <a href="#">Sneakers</a><a href="#">Heels</a><a href="#">Boots</a>
+      <a href="#">Sandals</a><a href="#">Crocs</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Size Guide</a><a href="#">Returns</a><a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 StyleHub</span></div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  displayProducts("shoes");
+  setupFilters("shoes");
+</script>
+</body>
+</html>

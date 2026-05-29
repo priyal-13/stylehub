@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart – StyleHub</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html"><div class="logo">Style<span>Hub</span></div></a>
+  <div class="search-box">
+    <input type="text" placeholder="Search products...">
+    <button><i class="fas fa-search"></i> Search</button>
+  </div>
+  <ul class="nav-links">
+    <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span>Cart</span> <span class="cart-count">0</span></a></li>
+    <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
+  </ul>
+</nav>
+
+<div class="category-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="women.html">👗 Women</a>
+  <a href="men.html">👔 Men</a>
+  <a href="shoes.html">👟 Shoes</a>
+  <a href="beauty.html">💄 Beauty</a>
+  <a href="accessories.html">💍 Accessories</a>
+</div>
+
+<div style="max-width:960px;margin:32px auto;padding:0 20px;display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;">
+
+  <!-- LEFT: CART ITEMS -->
+  <div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:20px;">
+      <i class="fas fa-shopping-cart" style="color:var(--primary);"></i> My Cart
+    </h1>
+    <div id="cart-items"></div>
+  </div>
+
+  <!-- RIGHT: ORDER SUMMARY -->
+  <div class="cart-summary" style="position:sticky;top:120px;">
+    <h2>Order Summary</h2>
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">₹0</span>
+    </div>
+    <div class="summary-row">
+      <span>Savings</span>
+      <span id="cart-discount" style="color:#2ecc71;">₹0</span>
+    </div>
+    <div class="summary-row">
+      <span>Delivery</span>
+      <span style="color:#2ecc71;">FREE on orders above ₹500</span>
+    </div>
+    <div class="summary-row" style="font-weight:700;font-size:1.05rem;border-top:2px solid var(--border);margin-top:8px;padding-top:12px;">
+      <span>Total</span>
+      <span id="cart-total-amount" class="summary-total">₹0</span>
+    </div>
+    <a href="payment.html"><button class="pay-btn">
+      <i class="fas fa-lock"></i> Proceed to Payment
+    </button></a>
+    <a href="index.html" style="display:block;text-align:center;margin-top:12px;font-size:0.88rem;color:var(--primary);font-weight:600;">
+      ← Continue Shopping
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Style<span style="color:var(--accent)">Hub</span></div>
+      <p>Safe & secure shopping experience.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="women.html">Women</a><a href="men.html">Men</a>
+      <a href="shoes.html">Shoes</a><a href="beauty.html">Beauty</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <a href="#">Returns</a><a href="#">Track Order</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 98765 43210</p>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 StyleHub</span><span><i class="fas fa-lock"></i> 100% Secure Payments</span></div>
+</footer>
+
+<style>
+  @media(max-width:720px){
+    div[style*="grid-template-columns"]{display:block !important;}
+    .cart-summary{position:static;margin-top:20px;}
+  }
+</style>
+
+<script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>
+</body>
+</html>
